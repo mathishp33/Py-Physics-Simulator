@@ -439,10 +439,10 @@ class App():
                 with open('trajectory_data.txt', 'w') as f:
                     f.write(str(self.traj_points))
                 self.trajectory = False 
-                self.menu_buttons[3][0] = ' Start Trajectory Analysis '
+                self.menu_buttons[2][0] = ' Start Trajectory Analysis '
             else:
                 self.trajectory = True
-                self.menu_buttons[3][0] = ' Stop Trajectory Analysis '
+                self.menu_buttons[2][0] = ' Stop Trajectory Analysis '
                 self.traj_points = [[] for i in self.objects]
             time.sleep(0.1)
         if index == 3:
@@ -476,9 +476,7 @@ class App():
             rect = text.get_rect(midleft=j[2])
             if rect.collidepoint(self.mouse_pos) and self.click:
                 self.button(i)
-            if self.allow_dragging == False and i == 1:
-                pg.draw.line(self.screen, j[3], rect.bottomleft, rect.topright)
-            if self.show_forces == False and i == 2:
+            if self.show_forces == False and i == 1:
                 pg.draw.line(self.screen, j[3], rect.bottomleft, rect.topright)
             pg.draw.rect(self.screen, j[3], rect, 1, 3)
             self.screen.blit(text, rect)
